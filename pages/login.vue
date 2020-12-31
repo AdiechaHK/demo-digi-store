@@ -10,7 +10,7 @@
         <input type="password" v-model="user.password" class="form-control" placeholder="Enter your password">
       </div>
       <div class="form-group">
-        <button class="btn btn-success">Login</button>
+        <button class="btn btn-success" @click="login()">Login</button>
       </div>
       <hr>
       <p>Don't have an account, <nuxt-link to='/register'>Register</nuxt-link> to create one</p>
@@ -26,6 +26,11 @@ export default {
         email: '',
         password: ''
       }
+    }
+  },
+  methods: {
+    login () {
+      this.$store.dispatch('login', this.user)
     }
   }
 }

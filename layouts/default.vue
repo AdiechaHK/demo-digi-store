@@ -4,6 +4,17 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted () {
+    const token = localStorage.getItem('_authToken')
+    if (!(this.$store.authToken) && token) {
+      this.$store.commit('authToken', token)
+    }
+  }
+}
+</script>
+
 <style>
 html {
   font-family:
